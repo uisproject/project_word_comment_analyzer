@@ -69,17 +69,21 @@ const InputComment = () => {
             }}
           />
           <span
+            onClick={(e) => {
+              submitHandler(e);
+            }}
             style={{
               position: "absolute",
               right: "25px",
               top: "50%",
               transform: "translateY(-50%)",
-              color: "#707070",
+              color: "#8e8e8e",
               fontSize: "1rem",
+              cursor: "pointer",
               display: isVisible ? "block" : "none",
             }}
           >
-            Press Enter
+            Post or Enter
           </span>
         </div>
       </form>

@@ -24,10 +24,12 @@ const ListComment = () => {
       >
         View Previous Comments
       </div>
+
       {data.data
         .slice(0, data.show)
         .map((item) => <CommentItem key={item.id} {...item} />)
         .reverse()}
+
       {data.adminComments
         .slice(0, data.adminComments.length)
         .map((item, idx) => (

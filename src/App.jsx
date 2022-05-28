@@ -1,6 +1,6 @@
 import React from "react";
 import ArticleNews from "./components/ArticleNews";
-import Comments from "./components/Comments";
+import FeatureBottom from "./components/FeatureBottom";
 import Header from "./components/Header";
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
           style={{ margin: "0 auto", width: "75vw" }}
         >
           <ArticleNews />
-          <Comments />
+          <FeatureBottom />
         </div>
       </article>
     </main>

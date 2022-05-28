@@ -1,12 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setTabIndex } from "../stores/tabs";
 
 const ArticleTabs = () => {
   const data = useSelector(({ comments }) => comments);
+  const dispatch = useDispatch();
 
   return (
     <div style={{ display: "flex" }}>
-      <div style={{ padding: "20px 0", marginRight: "20px" }}>
+      <div
+        onClick={() => {
+          dispatch(setTabIndex(0));
+        }}
+        style={{ padding: "20px 0", marginRight: "20px", cursor: "pointer" }}
+      >
         <i
           className="fa-solid fa-comment-dots"
           style={{ fontSize: "24px", marginRight: "10px" }}
@@ -14,12 +21,17 @@ const ArticleTabs = () => {
         <span>{data.data.length + data.adminComments.length} Comments</span>
       </div>
       <div>
-        <div style={{ padding: "20px 0" }}>
+        <div
+          onClick={() => {
+            dispatch(setTabIndex(1));
+          }}
+          style={{ padding: "20px 0", cursor: "pointer" }}
+        >
           <i
             className="fa-regular fa-chart-bar"
             style={{ fontSize: "24px", marginRight: "10px" }}
           ></i>
-          <span>Analyze Comments</span>
+          <span>Analyze last 10 Comments</span>
         </div>
       </div>
     </div>

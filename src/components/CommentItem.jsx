@@ -45,6 +45,7 @@ const CommentItem = ({ body, name, id, actions = false }) => {
           </div>
           {isEditing ? (
             <form
+              style={{ display: "flex" }}
               onSubmit={(e) => {
                 e.preventDefault();
                 const updatedData = {
@@ -63,6 +64,7 @@ const CommentItem = ({ body, name, id, actions = false }) => {
                   updateHandler(e);
                 }}
                 style={{
+                  width: "100%",
                   backgroundColor: "#3A3B3C",
                   border: "#fff 1px solid",
                   borderRadius: "10px",
@@ -70,9 +72,27 @@ const CommentItem = ({ body, name, id, actions = false }) => {
                   color: "#fff",
                 }}
               />
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  const updatedData = {
+                    id,
+                    name,
+                    body: newBody,
+                  };
+                  dispatch(updateComment(updatedData));
+                  setIsEditing(false);
+                }}
+                style={{
+                  margin: "0 5px",
+                  border: "transparent",
+                }}
+              >
+                Edit
+              </button>
             </form>
           ) : (
-            <div>{body}</div>
+            <div style={{ width: "100%", wordBreak: "break-word" }}>{body}</div>
           )}
         </div>
         {actions && (
