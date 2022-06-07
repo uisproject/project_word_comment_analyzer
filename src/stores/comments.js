@@ -1,3 +1,4 @@
+import axios from "../api/axios";
 import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -8,25 +9,15 @@ const initialState = {
 };
 
 export const getCommentItems = createAsyncThunk("getComments", async () => {
-  const getData = await fetch("https://jsonplaceholder.typicode.com/comments");
-  const res = await getData.json();
+  const { data } = await axios.get("/comments");
 
-  return res;
+  return data;
 });
 
 export const createComment = createAsyncThunk("createComment", async (data) => {
-  const stringifiedData = JSON.stringify(data);
-  const getData = await fetch("https://jsonplaceholder.typicode.com/comments", {
-    method: "post",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: stringifiedData,
-  });
-  const res = await getData.json();
+  const postedData = await axios.post("/comments", data);
 
-  return res;
+  return postedData.data;
 });
 
 export const updateComment = createAsyncThunk(
