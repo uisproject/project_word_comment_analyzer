@@ -1,0 +1,9 @@
+Axios menurut pemahaman saya axios adalah libarary yang digunakan untuk melakukan http-request, yang sebelumnya bisa dilakukan dengan menggunakan promise dan fetch. dengan menggunakan axios melakukan request menjadi lebih mudah khususnya tidak perlu melakukan konfigurasi kembali ketika melakukan fetching selain GET request umumnya axios digunakan untuk menangkap request seperti 
+1. GET => mengambil data dan bisa ditambahkan parameter untuk menangkap data secara detail
+2. POST => mengirimkan data sekali, mengirimkan data dengan body biasanya 
+3. DELETE => menghapus suatu data, menghapus suatu data
+4. PUT => dapat mengirimkan data berkali kali dan biasa digunakan untuk melakukan update data
+
+axios juga memiliki kelebihan untuk melakukan intercept, hal ini juga berguna untuk melakukan assign header oauth2 authorization token dan melakukan config lainnya
+
+pada projek yang saya lampirkan saya mengconvert manual fetching yang sebelumnya menggunakan fetch() lalu diubah dengan menggunakan axios(), pada contoh yang saya buat saya menggunakan 2 method http request GET dan POST
